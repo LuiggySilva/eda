@@ -18,12 +18,7 @@ public class VerificandoParenteses{
 		boolean retorno = true;
 		
 		for (int i = 0; i < texto.length(); i++) {
-			
-			if(texto.charAt(0) == ')') {
-				retorno =  false;
-				break;
-			}
-			
+
 			try {	
 				if(("" + texto.charAt(i)).equals(this.pa1)) {
 					this.stack.push(this.pa1);
@@ -31,9 +26,10 @@ public class VerificandoParenteses{
 				if(("" + texto.charAt(i)).equals(this.pa2)) {
 					this.stack.pop();
 				}			
-			}catch(Exception e) {
+			} catch(Exception e) {
 				retorno = false;
 			}
+			
 		}
 		return retorno && stack.isEmpty();
 	}

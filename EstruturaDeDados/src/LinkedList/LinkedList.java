@@ -66,6 +66,14 @@ public class LinkedList {
 		
 	}
 	
+	public boolean isEmpty() {
+		return this.elem == null;
+	}
+	
+	public boolean isFull() {
+		return false;
+	}
+	
 	public String print() {
 		if(this.elem == null) {
 			return "empty";
@@ -90,8 +98,13 @@ public class LinkedList {
 			if(opcao.startsWith("add")) {
                 LK.add(Integer.parseInt((opcao.split(" ")[1].trim())));
             }
-            if(opcao.startsWith("remove")) {	
-                LK.remove();
+            if(opcao.startsWith("remove")) {
+            	if(LK.isEmpty()) {
+            		System.out.println("empty");
+            	}
+            	else {
+            		LK.remove();            		
+            	}
 			}
             if(opcao.startsWith("element")) {
                 System.out.println(LK.element());
