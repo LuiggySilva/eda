@@ -1,9 +1,9 @@
 package forma;
 
-public class Retangulo implements FormaGeometrica{
+public class Retangulo implements FormaGeometrica {
 	
-	private double altura;
 	private double base;
+	private double altura;
 
 	public Retangulo(double base, double altura) {
 		this.base = base;
@@ -12,7 +12,6 @@ public class Retangulo implements FormaGeometrica{
 
 	@Override
 	public double area() {
-		return this.altura * this.base;
+		return this.base * this.altura;
 	}
-	
 }

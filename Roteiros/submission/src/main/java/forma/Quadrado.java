@@ -1,6 +1,6 @@
 package forma;
 
-public class Quadrado implements FormaGeometrica{
+public class Quadrado implements FormaGeometrica {
 	
 	private double lado;
 
@@ -12,5 +12,4 @@ public class Quadrado implements FormaGeometrica{
 	public double area() {
 		return Math.pow(this.lado, 2);
 	}
-	
 }

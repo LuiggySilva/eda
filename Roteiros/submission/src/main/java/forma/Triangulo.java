@@ -1,6 +1,7 @@
 package forma;
 
-public class Triangulo implements FormaGeometrica{
+
+public class Triangulo implements FormaGeometrica {
 	
 	private double altura;
 	private double base;
@@ -14,5 +15,4 @@ public class Triangulo implements FormaGeometrica{
 	public double area() {
 		return (this.base * this.altura) / 2;
 	}
-	
 }

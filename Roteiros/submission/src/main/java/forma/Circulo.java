@@ -12,5 +12,4 @@ public class Circulo implements FormaGeometrica{
 	public double area() {
 		return Math.PI * Math.pow(this.raio, 2);
 	}
-	
 }

@@ -2,7 +2,6 @@ package produto;
 
 import java.util.ArrayList;
 
-
 /**
  * Classe que representa um repositório de produtos usando ArrayList como
  * estrutura sobrejacente. Alguns métodos (atualizar, remover e procurar) ou
@@ -41,15 +40,7 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	private int procurarIndice(int codigo) {
-		int indice = -1;
-		for (int i = 0; i < this.produtos.size(); i++) {
-			Produto p = (Produto) this.produtos.get(i);
-			if(p.getCodigo() == codigo) {
-				indice = i;
-				break;
-			}
-		}
-		return indice;
+		return this.produtos.indexOf(new Produto(codigo, null, 0, null));
 	}
 
 	/**
@@ -59,11 +50,8 @@ public class RepositorioProdutoArrayList {
 	 * @return
 	 */
 	public boolean existe(int codigo) {
-		boolean retorno = true;
-		if(procurarIndice(codigo) < 0) {
-			retorno = false;
-		}
-		return retorno;
+		int indice = procurarIndice(codigo);
+		return indice >= 0;
 	}
 
 	/**
@@ -71,7 +59,6 @@ public class RepositorioProdutoArrayList {
 	 */
 	public void inserir(Produto produto) {
 		this.produtos.add(produto);
-		this.index = this.produtos.size() - 1;
 	}
 
 	/**
@@ -82,7 +69,7 @@ public class RepositorioProdutoArrayList {
 	public void atualizar(Produto produto) {
 		int indice = procurarIndice(produto.getCodigo());
 		if(indice < 0) {
-			throw new RuntimeException("produto nao encontrado");
+			throw new RuntimeException();
 		}
 		else {
 			this.produtos.set(indice, produto);
@@ -99,7 +86,7 @@ public class RepositorioProdutoArrayList {
 	public void remover(int codigo) {
 		int indice = procurarIndice(codigo);
 		if(indice < 0) {
-			throw new RuntimeException("produto nao encontrado");
+			throw new RuntimeException();
 		}
 		else {
 			this.produtos.remove(indice);
@@ -115,11 +102,14 @@ public class RepositorioProdutoArrayList {
 	 */
 	public Produto procurar(int codigo) {
 		int indice = procurarIndice(codigo);
+		Produto retorno;
 		if(indice < 0) {
-			throw new RuntimeException("produto nao encontrado");
+			retorno = null;;
 		}
 		else {
-			return (Produto) this.produtos.get(indice);
+			retorno = (Produto) this.produtos.get(indice);
 		}
+		
+		return retorno;
 	}
 }
